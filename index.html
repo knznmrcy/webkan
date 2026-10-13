@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ed001b"><meta name="description" content="KanztDev — student and beginner developer portfolio.">
+<title>KanztDev // Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=DM+Mono:wght@400;500&family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--red:#ed001b;--dark:#070707;--white:#f7f5f0;--mono:'DM Mono',monospace;--display:'Black Ops One',Impact,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#080808;color:var(--white);font-family:Inter,Arial,sans-serif}body{overflow:hidden}button,a{font:inherit}button{cursor:pointer}
+.appbar{height:30px;background:#171717;color:#bcbcbc;display:flex;align-items:center;justify-content:space-between;padding:0 14px;font:10px var(--mono);position:relative;z-index:10}.appbar b{color:#fff;font-weight:500}.appbar .dots{letter-spacing:5px}
+.site{height:calc(100dvh - 30px);min-height:580px;display:grid;grid-template-columns:59% 41%;position:relative;overflow:hidden}
+.left{position:relative;background:var(--red);padding:22px clamp(25px,5vw,78px) 26px;display:flex;flex-direction:column;justify-content:center;isolation:isolate;overflow:hidden}
+.left:before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(118deg,transparent 0 31px,rgba(95,0,13,.14) 32px 57px),radial-gradient(circle at 18% 20%,rgba(255,255,255,.1) 0 1px,transparent 1.5px);background-size:auto,6px 6px}
+.left:after{content:"";position:absolute;z-index:-1;right:-10%;top:-10%;width:55%;height:120%;background:rgba(255,255,255,.045);transform:rotate(14deg)}
+.brand{position:absolute;left:22px;top:20px;background:#080808;color:white;padding:7px 10px;font:10px var(--mono);letter-spacing:.11em;box-shadow:4px 4px rgba(0,0,0,.22)}.brand span{color:var(--red)}
+.kicker{font:10px var(--mono);letter-spacing:.23em;color:#fff;margin:0 0 13px 4px;text-transform:uppercase}
+h1{font:clamp(3.6rem,8.3vw,8rem)/.91 var(--display);letter-spacing:.025em;margin:0 0 20px;text-transform:uppercase;position:relative;z-index:2;max-width:750px;text-shadow:4px 4px #080808}
+h1 .letters{display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;background:var(--white);color:var(--red);padding:0 .1em;text-shadow:3px 3px #080808}
+.intro{background:#080808;color:#fff;max-width:460px;padding:13px 15px;font-size:12px;line-height:1.7;box-shadow:5px 5px rgba(0,0,0,.16);margin:0 0 22px;position:relative;z-index:2}.intro strong{color:#ff3044}
+.menu{display:flex;flex-direction:column;align-items:flex-start;gap:5px;position:relative;z-index:4;width:max-content;max-width:100%}
+.menu button{border:0;background:transparent;color:white;font:clamp(1.65rem,4vw,3.8rem)/1 var(--display);letter-spacing:.09em;text-transform:uppercase;padding:2px 12px 4px 4px;transform:rotate(-1deg);text-shadow:3px 3px #080808;position:relative;transition:transform .18s,color .18s}
+.menu button .tile{display:inline-block;min-width:.64em;text-align:center;background:#080808;color:#fff;padding:0 .02em;margin-right:-.04em;transform:rotate(2deg);text-shadow:none;box-shadow:2px 2px rgba(0,0,0,.3)}
+.menu button .arr{display:inline-block;margin-left:16px;font:700 .55em Inter,sans-serif;opacity:0;transform:translateX(-8px);transition:.18s}
+.menu button:hover,.menu button.active{transform:translateX(10px) rotate(-1deg)}.menu button:hover .arr,.menu button.active .arr{opacity:1;transform:none}
+.hint{position:absolute;bottom:18px;left:clamp(25px,5vw,78px);font:9px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.86)}
+.right{position:relative;background:#f0001d;overflow:hidden;border-left:8px solid var(--white);isolation:isolate}
+.right:before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-conic-gradient(from 10deg at 48% 48%,#080808 0deg 1.2deg,transparent 1.2deg 24deg);opacity:.7}
+.right:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(237,0,27,.08),transparent 35%),linear-gradient(0deg,rgba(0,0,0,.25),transparent 40%)}
+.character{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:contrast(1.08);mix-blend-mode:normal}
+.right-label{position:absolute;top:14px;right:14px;z-index:3;background:var(--white);color:#080808;padding:7px 10px;font:9px var(--mono);letter-spacing:.09em;transform:rotate(1deg)}
+.right-bottom{position:absolute;bottom:20px;left:20px;z-index:3;font:10px var(--mono);letter-spacing:.12em;line-height:1.8;text-shadow:2px 2px #000}
+.stamp{position:absolute;bottom:18px;right:16px;z-index:3;border:1px solid #fff;border-radius:50%;width:55px;height:55px;display:grid;place-items:center;color:white;font:10px var(--mono);transform:rotate(-12deg)}
+.tiktok{position:absolute;bottom:20px;left:20px;z-index:5;font-size:11px;font-weight:800;color:#fff;text-shadow:2px 2px #000;display:none}
+.panel{display:none;position:absolute;inset:0;z-index:8;background:#080808;padding:clamp(28px,5vw,70px);overflow:auto;animation:cut .3s ease both}
+.panel.open{display:block}@keyframes cut{from{opacity:0;transform:translateX(24px) skewX(-2deg)}to{opacity:1;transform:none}}
+.panel:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background:repeating-linear-gradient(130deg,transparent 0 32px,var(--red) 33px 37px)}
+.panel-inner{position:relative;z-index:1;max-width:850px;margin:auto}.panel-top{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--red);padding-bottom:13px;margin-bottom:26px;font:10px var(--mono);letter-spacing:.15em}.close{background:var(--red);color:white;border:0;padding:10px 14px;font:10px var(--mono);letter-spacing:.1em}
+.panel h2{font:clamp(3rem,8vw,6.5rem)/.9 var(--display);text-transform:uppercase;margin:0 0 28px}.panel h2 em{font-style:normal;color:var(--red);text-shadow:3px 3px var(--white)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:#f3f0e9;color:#080808;padding:20px;min-height:155px;border-left:5px solid var(--red)}.card small{font:10px var(--mono);color:#d0001b}.card h3{font:25px var(--display);margin:12px 0 8px;text-transform:uppercase}.card p,.copy{font-size:13px;line-height:1.8;color:#c9c9c9}.card p{color:#444;margin:0}
+.skill{margin:18px 0}.skill-title{display:flex;justify-content:space-between;font:11px var(--mono);margin-bottom:7px}.track{height:8px;background:#333;transform:skew(-12deg)}.track span{display:block;height:100%;background:var(--red)}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.socials a{color:#fff;text-decoration:none;border:1px solid #777;padding:13px 15px;font:11px var(--mono)}.socials a:hover{background:var(--red);border-color:var(--red)}
+@media(max-width:720px){body{overflow:auto}.appbar{height:28px}.site{height:auto;min-height:calc(100dvh - 28px);grid-template-columns:1fr;grid-template-rows:minmax(570px,74dvh) minmax(320px,45dvh);overflow:visible}.left{padding:65px 7vw 55px;min-height:570px}.brand{top:14px;left:6vw}h1{font-size:clamp(3.8rem,15vw,6.4rem);margin-bottom:18px}.intro{font-size:11px;max-width:95%;margin-bottom:17px}.menu{gap:3px}.menu button{font-size:clamp(1.8rem,8vw,2.8rem)}.hint{left:7vw;bottom:14px}.right{border-left:0;border-top:7px solid var(--white);min-height:320px}.character{object-position:center 32%}.right-label{font-size:8px}.right-bottom{bottom:12px;left:14px}.stamp{bottom:12px;right:12px}.panel{position:fixed;inset:28px 0 0;padding:30px 6vw}.cards{grid-template-columns:1fr}.panel h2{font-size:3.6rem}}
+@media(max-height:700px) and (min-width:721px){.left{padding-top:55px;padding-bottom:40px}.brand{top:12px}.kicker{margin-bottom:8px}h1{font-size:clamp(3.4rem,7.5vw,6rem);margin-bottom:12px}.intro{padding:9px 12px;margin-bottom:12px}.menu{gap:1px}.menu button{font-size:clamp(1.7rem,3.4vw,2.7rem)}}
+</style>
+</head>
+<body>
+<div class="appbar"><span>◉ &nbsp; <b>KANZTDEV — PORTFOLIO</b></span><span class="dots">● ● ●</span></div>
+<main class="site">
+ <section class="left" id="home">
+  <div class="brand">PORTFOLIO // <span>KANZTDEV</span></div>
+  <div class="kicker">Take a look at my work</div>
+  <h1>KANZT<span class="letters">DEV</span></h1>
+  <p class="intro">Student & beginner developer yang lagi belajar membangun website. <strong>Masih berkembang, terus berkarya.</strong> Welcome to my little corner of the internet.</p>
+  <nav class="menu" aria-label="Portfolio sections">
+   <button class="active" data-panel="projects"><span class="tile">P</span>rojects <span class="arr">◀</span></button>
+   <button data-panel="skills"><span class="tile">S</span>kills <span class="arr">◀</span></button>
+   <button data-panel="about"><span class="tile">A</span>bout <span class="arr">◀</span></button>
+   <button data-panel="contact"><span class="tile">C</span>ontact <span class="arr">◀</span></button>
+  </nav>
+  <div class="hint">↑ ↓ SELECT &nbsp;&nbsp; ENTER CONFIRM &nbsp;&nbsp; ESC BACK</div>
+ </section>
+ <section class="right" aria-label="Anime-inspired character art">
+  <img class="character" src="kanzt-character.png" alt="Ilustrasi karakter anime original bernuansa merah dan hitam">
+  <div class="right-label">STUDENT · BEGINNER DEVELOPER</div>
+  <div class="right-bottom">KANZTDEV<br>PLAYER NO. 001</div><div class="stamp">LV. 01</div>
+ </section>
+ <section class="panel" id="projects"><div class="panel-inner"><div class="panel-top"><span>01 / SELECTED WORKS</span><button class="close">ESC ×</button></div><h2>MY <em>PROJECTS</em></h2><div class="cards">
+  <article class="card"><small>PROJECT_001 / WEB</small><h3>Portfolio Website</h3><p>Personal website untuk menampilkan karya dan perjalanan belajar coding.</p></article>
+  <article class="card"><small>PROJECT_002 / UI</small><h3>UI Playground</h3><p>Eksperimen layout, typography, warna kontras, dan interaksi.</p></article>
+  <article class="card"><small>PROJECT_003 / NEXT</small><h3>Coming Soon</h3><p>Project berikutnya lagi dalam proses. Stay tuned.</p></article>
+  <article class="card"><small>YOUR PROJECT HERE</small><h3>Make it yours</h3><p>Ganti kartu ini dengan project asli, link demo, dan repository lu.</p></article>
+ </div></div></section>
+ <section class="panel" id="skills"><div class="panel-inner"><div class="panel-top"><span>02 / CURRENT LOADOUT</span><button class="close">ESC ×</button></div><h2>MY <em>SKILLS</em></h2><p class="copy">Masih dalam proses belajar. Sesuaikan indikator ini dengan skill lu yang sebenarnya.</p>
+  <div class="skill"><div class="skill-title"><span>HTML / CSS</span><span>LEARNING</span></div><div class="track"><span style="width:68%"></span></div></div>
+  <div class="skill"><div class="skill-title"><span>JAVASCRIPT</span><span>LEARNING</span></div><div class="track"><span style="width:35%"></span></div></div>
+  <div class="skill"><div class="skill-title"><span>RESPONSIVE DESIGN</span><span>PRACTICING</span></div><div class="track"><span style="width:48%"></span></div></div>
+  <div class="skill"><div class="skill-title"><span>UI / VISUAL DESIGN</span><span>EXPLORING</span></div><div class="track"><span style="width:42%"></span></div></div>
+ </div></section>
+ <section class="panel" id="about"><div class="panel-inner"><div class="panel-top"><span>03 / BEHIND THE SCREEN</span><button class="close">ESC ×</button></div><h2>ABOUT <em>ME</em></h2><p class="copy">Yo, gue KanztDev. Gue seorang student yang lagi mulai masuk ke dunia web development. Gue percaya skill datang dari rasa penasaran, latihan, dan keberanian buat bikin sesuatu walaupun belum sempurna.</p><p class="copy">Sekarang gue fokus memahami fondasi web, belajar desain yang punya karakter, dan bikin project yang lebih solid. Website ini bakal berkembang bareng perjalanan gue.</p><p class="copy"><b style="color:white">CURRENT QUEST:</b> LEARN → BUILD → LEVEL UP.</p></div></section>
+ <section class="panel" id="contact"><div class="panel-inner"><div class="panel-top"><span>04 / MAKE A CONNECTION</span><button class="close">ESC ×</button></div><h2>LET'S <em>TALK</em></h2><p class="copy">Punya ide, mau collab, atau mau ngobrol soal coding? Hubungi gue lewat salah satu link ini.</p><div class="socials"><a href="mailto:hello@example.com">EMAIL ↗</a><a href="https://github.com/" target="_blank" rel="noopener">GITHUB ↗</a><a href="https://instagram.com/" target="_blank" rel="noopener">INSTAGRAM ↗</a><a href="https://tiktok.com/" target="_blank" rel="noopener">TIKTOK ↗</a></div><p class="copy" style="font-size:10px;margin-top:28px">Ingat ganti email dan link sosial placeholder sebelum dipublish.</p></div></section>
+</main>
+<script>
+const buttons=[...document.querySelectorAll('[data-panel]')],panels=[...document.querySelectorAll('.panel')];let selected=0;
+function closePanels(){panels.forEach(p=>p.classList.remove('open'));buttons.forEach(b=>b.classList.remove('active'))}
+function openPanel(id){const panel=document.getElementById(id);if(!panel)return;panels.forEach(p=>p.classList.toggle('open',p===panel));buttons.forEach((b,i)=>{b.classList.toggle('active',b.dataset.panel===id);if(b.dataset.panel===id)selected=i})}
+buttons.forEach(b=>b.addEventListener('click',()=>openPanel(b.dataset.panel)));
+document.querySelectorAll('.close').forEach(b=>b.addEventListener('click',closePanels));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePanels();if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();selected=(selected+(e.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length;buttons.forEach((b,i)=>b.classList.toggle('active',i===selected))}if(e.key==='Enter'&&!panels.some(p=>p.classList.contains('open')))openPanel(buttons[selected].dataset.panel)});
+</script>
+</body></html>
